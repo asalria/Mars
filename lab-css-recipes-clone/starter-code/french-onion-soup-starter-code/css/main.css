@@ -1,9 +1,80 @@
 /*Some necessary adjustments*/
-h1, body, html, main {
-  margin: 0;
-}
 /*Import the font and set the default size*/
 html {
   font-family: 'Open Sans', sans-serif;
   font-size: 18px
 }
+h1, body, html, main {
+  margin: 0;
+}
+
+body{
+  counter-reset: section;
+}
+
+.container{
+  background-image: url("/Users/ameliasalgado/Documents/Ironhack/lab-css-recipes-clone/starter-code/french-onion-soup-starter-code/images/soup.jpg");
+  background-repeat:no-repeat;    
+  background-size: 100% 100vh;
+  height: 100vh;
+  position: relative;
+}
+
+.body-text{
+  margin: auto;
+  padding: 0;
+  width: 70%;
+  font-family: sans-serif;
+}
+
+.main-title{
+  font-size: 80px; 
+  font-weight: lighter;
+  font-family: sans-serif;  
+  color: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  transform: translate(-50%,-50%);
+}
+
+.border{
+  padding-top: 30px;
+  border: 0;
+  border-top: 3px solid #ccc;
+}
+
+.paragraph-center{
+  text-align: justify;
+}
+.info{
+  display: block;
+  padding-top: 10px;
+  margin: auto;
+  width: 45%;
+}
+h2,h3{
+  font-weight: bold;
+}
+
+ol,ul {
+  list-style-type: none;
+  margin: auto -20px;
+  padding-top: 20px;
+}  
+.ing li:before {
+  content: '-';
+  position: absolute;
+  margin-left: -10px;
+}
+
+.dir li:before{
+  counter-increment: section;
+  content: counter(section) ") ";
+  
+}
+
+
+
