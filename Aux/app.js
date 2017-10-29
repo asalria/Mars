@@ -4,7 +4,8 @@ var rover={
   direction: "N",
   x:0,
   y:0,
-  travelLog: [[0,0]]
+  travelLog: [[0,0]],
+  obstacle: [2,1]
 };
 
 var array = ["r","f","f","r","f","f","l","f","r","f","f"];
@@ -81,26 +82,39 @@ function moveForward(rover){
 }
 
 function moveBackwards(rover){
+  var array;
   switch(rover.direction)
   {
     case ("N"):
     if(rover.y>0){
+      array = [rover.x, rover.y+1];
+      if(!compare(array,rover.obstacle)){
       rover.y = rover.y+1;
+    }else console.log("Obstacle");
     }
     break;
     case ("S"):
     if(rover.y<10){
+      array = [rover.x, rover.y-1];
+      if(!compare(array,rover.obstacle)){
       rover.y = rover.y-1;
+      }else console.log("Obstacle");
     }
     break;
     case ("E"):
     if(rover.x<10){
+      array = [rover.x-1, rover.y];
+      if(!compare(array,rover.obstacle)){
       rover.x = rover.x-1;
+      }else console.log("Obstacle");
     }
     break;
     case ("W"):
     if(rover.x>0){
+      array = [rover.x+1, rover.y];
+      if(!compare(array,rover.obstacle)){
       rover.x = rover.x+1;
+      }else console.log("Obstacle");
     }
     break;
   }
@@ -126,4 +140,12 @@ function movements(array){
       break;
     }
   }
+}
+
+function compare(array1,array2){
+  for(var i=0;i<array1.length;i++)
+    for(var j=0;j<array2.length;j++)
+      if(array1[j]===array2[i])
+        return true;
+  return false;
 }
